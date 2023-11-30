@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="styles.css" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <p>
+            <label for="username">username</label>
+            <input id="username">
+        </p>
+        <p>
+            <label for="password">password</label>
+            <input id="password">
+        </p>
+        <p>
+
+        </p>
+        <p>
+            <button class="button" onclick="submit()">
+                Submit
+            </button>
+        </p>
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.19.0/js/md5.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js"></script>
+<script>
+    function logout() {
+        let name = 'sapia_token'
+        let exp = new Date();
+        exp.setTime(exp.getTime() - 1);
+        document.cookie = 'sapia_token' + "=" + ";expires=" + exp.toGMTString();
+        location.reload()
+    }
+
+    window.onload = function () {
+        console.log("loading")
+        let xmlHttp = new XMLHttpRequest()
+        xmlHttp.open("GET", "cookie");
+        xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlHttp.send()
+        xmlHttp.onreadystatechange = function () {
+            let { readyState, status, responseText } = xmlHttp
+            if (readyState === 4 && status === 200 && responseText === "matched") {
+                let cookie = document.cookie.split("=")[1]
+                let { username } = jwtDecode(cookie)
+                document.getElementsByTagName("div")[0].innerHTML =
+                    "<div>" + username + " login successfully !!</div>" +
+                    "<p><button onclick=logout()>Logout (release cookie)</button></p>"
+            }
+        }
+    }
+
+    function submit() {
+        let username = document.getElementById("username")
+        let password = document.getElementById("password")
+        if (username.value && password.value) {
+            console.log("trigger!!")
+            let xmlHttp = new XMLHttpRequest()
+            xmlHttp.open("POST", "/check");
+            xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xmlHttp.send(JSON.stringify({ username: username.value, password: md5(password.value) }))
+            xmlHttp.onreadystatechange = function () {
+                let { readyState, status, responseText } = xmlHttp
+                if (readyState === 4 && status === 201 && responseText === "matched") {
+                    document.getElementsByTagName("div")[0].innerHTML =
+                        "<div>" + username.value + " login successfully !!</div>" +
+                        "<p><button onclick=logout()>Logout (release cookie)</button></p>"
+                } else {
+                    document.getElementsByTagName("div")[0].innerHTML = responseText
+                }
+                console.log(responseText)
+            }
+        } else {
+            document.getElementsByTagName("p")[2].innerHTML = "username and password must be filled"
+        }
+    }
+</script>
+
+</html>

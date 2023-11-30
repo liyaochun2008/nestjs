@@ -39,8 +39,10 @@ $ npm install
 ## Running the app
 ```bash
 $ nest start
+```
 
 ## Test
+```bash
 # unit tests
 $ npm run test
 

@@ -26,11 +26,15 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+# visit at 
+```bash
+localhost:3000
+```
+
 ## Run with Docker
 ```bash
 $ docker-compose up nestapp
 ```
-visit at localhost:3000
 
 ## Installation
 

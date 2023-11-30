@@ -31,7 +31,7 @@
 localhost:3000
 ```
 
-## Run with Docker
+## Running directly with Docker
 ```bash
 $ docker-compose up nestapp
 ```

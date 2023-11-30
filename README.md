@@ -28,7 +28,7 @@
 
 ## Run with Docker
 $ docker-compose up nestapp 
-  visit at localhost:3000
+# visit at localhost:3000
 
 ## Installation
 

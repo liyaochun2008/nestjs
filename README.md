@@ -70,15 +70,6 @@ mongodb+srv://smartleoyaochun:840yingG@cluster0.tfi8vui.mongodb.net/?retryWrites
 <p> 4.Account will be locked permanently if password wrong 3 times in 5 mins.</p>
 <p> 5.If login successfully, cookie will be created in the brower with jwt encription, user dont need to do any input again until log out.</p>
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 

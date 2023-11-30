@@ -59,11 +59,11 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 ## Project explanation 
--1.A basic home page to login account (username:335875139@qq.com , password:123456) at localhost:3000.
--2.When the inputs are empty, warning message will be shown in the page.
--3.When inputs are incorrect, feedback messages will be shown in the page.
--4.Account will be locked permanently if password wrong 3 times in 5 mins.
--5.if login successfully, cookie will be created in the brower with jwt encription, user dont need to do any input again until log out.
+<p>1.A basic home page to login account (username:335875139@qq.com , password:123456) at localhost:3000.</p>
+<p>2.When the inputs are empty, warning message will be shown in the page.</p>
+<p>3.When inputs are incorrect, feedback messages will be shown in the page.</p>
+<p>4.Account will be locked permanently if password wrong 3 times in 5 mins.</p>
+<p>5.if login successfully, cookie will be created in the brower with jwt encription, user dont need to do any input again until log out.</p>
 
 ## visit database
 
